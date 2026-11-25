@@ -1,91 +1,117 @@
 <!DOCTYPE html>
 <html lang="ur"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0f9d73"><title>گفتگو — Language Exchange</title>
+<meta name="theme-color" content="#10c48d"><title>گفتگو — Language Exchange</title>
 <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
 <style>
-:root{--bg:#f4f7f6;--s:#fff;--s2:#e9f0ee;--tx:#10231d;--mu:#6b8079;--ac:#0f9d73;--bd:#dce6e3;--me:#d7f5e8}
-[data-t=dark]{--bg:#0c1512;--s:#13201c;--s2:#1b2c27;--tx:#e6f2ee;--mu:#8aa69d;--ac:#1fc08f;--bd:#233732;--me:#12453a}
+:root{--bg:#f3f5f7;--s:#fff;--s2:#eef1f4;--tx:#1b2430;--mu:#8793a1;--ac:#10c48d;--ac2:#0a9f71;--bd:#e5e9ee;--me:#10c48d;--meT:#fff;--chat:#eaf0ee}
+[data-t=dark]{--bg:#0e1316;--s:#171d21;--s2:#222a30;--tx:#e8eef2;--mu:#8795a1;--ac:#19cf98;--ac2:#10c48d;--bd:#262f35;--me:#0f8a66;--meT:#fff;--chat:#0b1012}
 *{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}body{font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Nastaliq Urdu",sans-serif;background:var(--bg);color:var(--tx);display:flex;flex-direction:column;max-width:560px;margin:auto;padding-top:env(safe-area-inset-top)}
-button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}
-[hidden]{display:none!important}
-header.top{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--ac);color:#fff}
-header.top h1{font-size:22px;flex:1}
-#main{flex:1;overflow-y:auto;padding:12px}
+button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;border:0;background:none}[hidden]{display:none!important}
+header.top{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--s);border-bottom:1px solid var(--bd)}
+header.top h1{font-size:24px;flex:1;color:var(--ac);font-weight:800}
+.ib{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:var(--tx);font-size:19px}.ib:active{background:var(--s2)}
+#main{flex:1;overflow-y:auto}
 nav{display:flex;background:var(--s);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
-nav button{flex:1;padding:8px 0;font-size:11px;color:var(--mu);display:flex;flex-direction:column;align-items:center;gap:2px}
-nav button span{font-size:20px}nav button.on{color:var(--ac);font-weight:700}
-.card{background:var(--s);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px}
-.row{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid var(--bd);cursor:pointer}
-.row .t{flex:1;min-width:0}.row b{display:block}.row small{color:var(--mu);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:18px;flex:none}
-.tag{display:inline-block;background:var(--s2);border-radius:99px;padding:2px 9px;font-size:12px;margin:2px 4px 0 0}
-.tag.m{background:var(--ac);color:#fff}
-input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--s);margin-bottom:10px}
-.btn{background:var(--ac);color:#fff;border-radius:10px;padding:11px 16px;font-weight:700;width:100%}
-.btn.g{background:var(--s2);color:var(--tx)}
-.mu{color:var(--mu)}.dot{width:10px;height:10px;border-radius:50%;background:var(--ac)}
-#auth{position:fixed;inset:0;background:var(--bg);overflow:auto;padding:24px;max-width:560px;margin:auto;z-index:5}
-#auth h1{font-size:44px;color:var(--ac);text-align:center;margin:20px 0 4px}
-#auth p.s{text-align:center;color:var(--mu);margin-bottom:20px}
-#err{color:#d33;min-height:20px;margin-bottom:8px;font-size:13px}
+nav button{flex:1;padding:8px 0 6px;font-size:11px;color:var(--mu);display:flex;flex-direction:column;align-items:center;gap:2px;position:relative}
+nav svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav button.on{color:var(--ac);font-weight:700}nav button.on svg{fill:color-mix(in srgb,var(--ac) 18%,transparent)}
+.bdg{position:absolute;top:3px;left:55%;background:#ff4d4f;color:#fff;border-radius:99px;font-size:10px;min-width:17px;padding:0 4px;text-align:center;line-height:17px}
+.pad{padding:12px}
+.card{background:var(--s);border-radius:14px;padding:14px;margin-bottom:10px}
+.row{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--s);border-bottom:1px solid var(--bd);cursor:pointer}.row:active{background:var(--s2)}
+.row .t{flex:1;min-width:0}.row b{display:flex;align-items:center;gap:6px}.row small{color:var(--mu);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.avw{position:relative;flex:none}.av{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:700;font-size:20px}
+.on-d{position:absolute;right:1px;bottom:1px;width:13px;height:13px;border-radius:50%;background:#2ecc71;border:2px solid var(--s)}
+.lv{display:inline-flex;gap:2px;vertical-align:middle}.lv i{width:4px;height:11px;border-radius:2px;background:var(--bd)}.lv i.f{background:var(--ac)}
+.tag{display:inline-block;background:var(--s2);border-radius:99px;padding:2px 9px;font-size:12px;margin:3px 4px 0 0}.tag.m{background:color-mix(in srgb,var(--ac) 16%,transparent);color:var(--ac2);font-weight:600}
+input,select,textarea{width:100%;padding:12px;border:1px solid var(--bd);border-radius:12px;background:var(--s);margin-bottom:10px;outline:0}input:focus,textarea:focus{border-color:var(--ac)}
+.btn{background:var(--ac);color:#fff;border-radius:99px;padding:12px 16px;font-weight:700;width:100%}.btn.g{background:var(--s2);color:var(--tx)}
+.mu{color:var(--mu)}.mid{text-align:center;padding:30px 16px;color:var(--mu)}
+.chips{display:flex;gap:8px;padding:0 12px 10px;overflow-x:auto}.chip{flex:none;padding:6px 14px;border-radius:99px;background:var(--s);border:1px solid var(--bd);font-size:13px}.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.srch{padding:12px 12px 8px}.srch input{margin:0;border-radius:99px;background:var(--s2);border:0;padding-left:16px}
+#auth{position:fixed;inset:0;background:linear-gradient(160deg,#10c48d,#0a8f9f);overflow:auto;padding:24px;max-width:560px;margin:auto;z-index:5;color:#fff}
+#auth h1{font-size:54px;text-align:center;margin:30px 0 4px}#auth p.s{text-align:center;opacity:.9;margin-bottom:22px}
+#auth .box{background:var(--s);color:var(--tx);border-radius:20px;padding:18px}
+#err{color:#e33;min-height:20px;margin-bottom:8px;font-size:13px}
 #chat,#sheet{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;max-width:560px;margin:auto;z-index:4;padding-top:env(safe-area-inset-top)}
-#sheet{z-index:6;padding:16px;overflow:auto}
-#chat header{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--s);border-bottom:1px solid var(--bd)}
-#chat header .av{width:38px;height:38px;font-size:15px}
-#ml{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:6px}
-.m{max-width:80%;padding:8px 12px;border-radius:16px;background:var(--s);border:1px solid var(--bd);align-self:flex-start;white-space:pre-wrap;word-break:break-word}
-.m.me{align-self:flex-end;background:var(--me);border-color:transparent}
-.m i{display:block;font-size:10px;color:var(--mu);font-style:normal;margin-top:2px;text-align:end}
-#cf{display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--s);border-top:1px solid var(--bd)}
-#cf input{margin:0;flex:1;border-radius:99px}#cf button{background:var(--ac);color:#fff;border-radius:50%;width:44px;font-size:18px}
+#sheet{z-index:6;overflow:auto}
+#chat>header{display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--s);border-bottom:1px solid var(--bd)}
+#chat>header .av{width:40px;height:40px;font-size:16px}
+#ml{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:var(--chat)}
+.m{max-width:80%;padding:8px 12px;border-radius:18px 18px 18px 4px;background:var(--s);align-self:flex-start;white-space:pre-wrap;word-break:break-word;box-shadow:0 1px 1px #0001}
+.m.me{align-self:flex-end;background:var(--me);color:var(--meT);border-radius:18px 18px 4px 18px}
+.m i{display:block;font-size:10px;opacity:.65;font-style:normal;margin-top:2px;text-align:end}
+.m .rp{border-inline-start:3px solid var(--ac);background:#0001;padding:3px 8px;border-radius:6px;font-size:12px;margin-bottom:4px;opacity:.85}
+.m .trx{border-top:1px dashed #8886;margin-top:6px;padding-top:5px;font-size:14px}
+.cr{align-self:stretch;background:var(--s);border-radius:14px;padding:10px 12px;border-inline-start:4px solid #f5a623}
+.cr s{color:#e5484d}.cr .fx{color:var(--ac2);font-weight:600}.cr small{color:var(--mu);display:block;margin-bottom:3px}
+#rb{display:flex;align-items:center;gap:8px;padding:6px 12px;background:var(--s);border-top:1px solid var(--bd);font-size:13px}#rb span{flex:1;color:var(--mu);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#cf{display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:var(--s);border-top:1px solid var(--bd);align-items:flex-end}
+#cf input{margin:0;flex:1;border-radius:99px;background:var(--s2);border:0}#cf button.sd{background:var(--ac);color:#fff;border-radius:50%;width:44px;height:44px;font-size:18px}
+.qr{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+#pop{position:fixed;inset:0;background:#0006;z-index:9;display:flex;align-items:flex-end;max-width:560px;margin:auto}
+#pop>div{background:var(--s);width:100%;border-radius:20px 20px 0 0;padding:12px 12px calc(12px + env(safe-area-inset-bottom))}
+#pop .it{display:block;width:100%;text-align:start;padding:14px 12px;border-bottom:1px solid var(--bd);font-size:16px}
+.mo-h{display:flex;gap:10px;align-items:center}.mo-h .av{width:44px;height:44px;font-size:17px}
+.act{display:flex;gap:22px;margin-top:8px;color:var(--mu)}.act button{color:var(--mu);font-size:14px}
 </style></head><body>
 <div id="auth" hidden>
  <h1>گفتگو</h1><p class="s">Talk. Learn. Connect with the world.</p>
- <div id="setup" class="card" hidden><b>Setup needed:</b> paste your Firebase config at the top of the script in index.html (see README).</div>
+ <div class="box">
+ <div id="setup" class="card" hidden><b>Setup needed:</b> paste your Firebase config in the script.</div>
  <form id="af" autocomplete="off">
   <input id="a_name" placeholder="Your name" maxlength="30" hidden>
   <input id="a_user" placeholder="Username (a–z, 0–9, _)" maxlength="20" autocapitalize="none">
   <input id="a_pass" type="password" placeholder="Password (min 6)">
-  <select id="a_nat" hidden></select><select id="a_lrn" hidden></select>
+  <div id="a_ex" hidden><label class="mu">I speak</label><select id="a_nat"></select><label class="mu">I'm learning</label><select id="a_lrn"></select><label class="mu">My level</label><select id="a_lvl"></select></div>
   <div id="err"></div>
   <button class="btn" id="a_go">Log in</button>
   <button type="button" class="btn g" id="a_sw" style="margin-top:8px">Create new account</button>
- </form>
+ </form></div>
 </div>
-<header class="top"><h1 id="ttl">گفتگو</h1><button id="thm" style="color:#fff;font-size:20px" aria-label="Theme">🌓</button></header>
+<header class="top"><h1 id="ttl">گفتگو</h1><button class="ib" id="thm" aria-label="Theme">◐</button></header>
 <div id="main"></div>
-<nav><button data-t="chats"><span>💬</span>Chats</button><button data-t="discover"><span>🌍</span>Discover</button><button data-t="moments"><span>✨</span>Moments</button><button data-t="me"><span>👤</span>Me</button></nav>
-<div id="chat" hidden></div><div id="sheet" hidden></div>
+<nav id="nv"></nav>
+<div id="chat" hidden></div><div id="sheet" hidden></div><div id="pop" hidden></div>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
-// ====== Firebase config (project: guftugu-4472d) ======
 const FB={apiKey:"AIzaSyDPK4nDaiV6vF4EGkbXzAZ11x-p6VDJyxg",authDomain:"guftugu-4472d.firebaseapp.com",projectId:"guftugu-4472d",storageBucket:"guftugu-4472d.firebasestorage.app",messagingSenderId:"705342846209",appId:"1:705342846209:web:9b2fe7314af032c3bd1700"};
-// =============================================================
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const LANGS=['Urdu','English','Arabic','Hindi','Punjabi','Pashto','Persian','Turkish','Spanish','French','German','Russian','Chinese','Japanese','Korean','Indonesian'];
+const LG={Urdu:['ur','🇵🇰'],English:['en','🇬🇧'],Arabic:['ar','🇸🇦'],Hindi:['hi','🇮🇳'],Punjabi:['pa','🇮🇳'],Pashto:['ps','🇦🇫'],Persian:['fa','🇮🇷'],Turkish:['tr','🇹🇷'],Spanish:['es','🇪🇸'],French:['fr','🇫🇷'],German:['de','🇩🇪'],Russian:['ru','🇷🇺'],Chinese:['zh-CN','🇨🇳'],Japanese:['ja','🇯🇵'],Korean:['ko','🇰🇷'],Indonesian:['id','🇮🇩']};
+const LANGS=Object.keys(LG),LV=['Beginner','Elementary','Intermediate','Advanced'];
+const fl=l=>(LG[l]||[])[1]||'🌐';
 const hue=s=>[...String(s)].reduce((a,c)=>(a*31+c.charCodeAt(0))%360,7);
-const av=n=>`<div class="av" style="background:hsl(${hue(n)} 50% 42%)">${esc((n||'?').trim()[0]||'?').toUpperCase()}</div>`;
+const av=(n,on,sz)=>`<div class="avw"><div class="av" style="background:hsl(${hue(n)} 50% 45%);${sz?`width:${sz}px;height:${sz}px;font-size:${sz/2.4}px`:''}">${esc((n||'?').trim()[0]||'?').toUpperCase()}</div>${on?'<span class="on-d"></span>':''}</div>`;
+const lvl=n=>`<span class="lv" title="${LV[n]||''}">${[0,1,2,3].map(i=>`<i class="${i<=n?'f':''}"></i>`).join('')}</span>`;
 const ls=(k,v)=>{try{return v===undefined?localStorage.getItem(k):localStorage.setItem(k,v)}catch(_){return null}};
-const ago=t=>{if(!t)return'';const d=new Date(t),n=new Date(),p=x=>String(x).padStart(2,'0');return d.toDateString()===n.toDateString()?p(d.getHours())+':'+p(d.getMinutes()):d.toLocaleDateString([], {day:'numeric',month:'short'})};
+const ago=t=>{if(!t)return'';const d=new Date(t),n=new Date(),p=x=>String(x).padStart(2,'0');return d.toDateString()===n.toDateString()?p(d.getHours())+':'+p(d.getMinutes()):d.toLocaleDateString([],{day:'numeric',month:'short'})};
 const ms=x=>x&&x.toMillis?x.toMillis():Date.now();
-const opts=(sel,def)=>sel.innerHTML=LANGS.map(l=>`<option ${l===def?'selected':''}>${l}</option>`).join('');
+const online=u=>u.seen&&Date.now()-ms(u.seen)<3*60e3;
+const opts=(sel,def,arr=LANGS)=>sel.innerHTML=arr.map((l,i)=>`<option value="${arr===LV?i:l}" ${(arr===LV?i==def:l===def)?'selected':''}>${l}</option>`).join('');
+const IC={chats:'<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/>',discover:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',moments:'<circle cx="12" cy="12" r="9"/><path d="m12 7 1.5 3.5L17 12l-3.5 1.5L12 17l-1.5-3.5L7 12l3.5-1.5z"/>',me:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>'};
+const NAV={chats:'Chats',discover:'Partners',moments:'Moments',me:'Me'};
+$('#nv').innerHTML=Object.keys(NAV).map(k=>`<button data-t="${k}"><svg viewBox="0 0 24 24">${IC[k]}</svg>${NAV[k]}<span class="bdg" id="bd_${k}" hidden></span></button>`).join('');
 document.documentElement.dataset.t=ls('t')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
 $('#thm').onclick=()=>{const t=document.documentElement.dataset.t==='dark'?'light':'dark';document.documentElement.dataset.t=t;ls('t',t)};
 
-let auth,db,me=null,cur='chats',unsubs=[],mode='login';
+async function tr(text,to){const r=await fetch('https://api.mymemory.translated.net/get?q='+encodeURIComponent(text.slice(0,450))+'&langpair=Autodetect|'+LG[to][0]);const j=await r.json();return j.responseData.translatedText}
+function popup(items){const p=$('#pop');p.hidden=false;p.innerHTML='<div>'+items.map((x,i)=>`<button class="it" data-i="${i}">${x[0]}</button>`).join('')+'<button class="it mu" data-i="-1">Cancel</button></div>';
+ p.onclick=e=>{const b=e.target.closest('[data-i]');if(e.target===p||b){p.hidden=true;if(b&&items[+b.dataset.i])items[+b.dataset.i][1]()}}}
+
+let auth,db,me=null,cur='chats',unsubs=[],mode='login',uw=null;
 const ok=FB.apiKey&&!FB.apiKey.startsWith('PASTE');
-if(ok){firebase.initializeApp(FB);auth=firebase.auth();db=firebase.firestore();}
-else{$('#auth').hidden=false;$('#setup').hidden=false}
+if(ok){firebase.initializeApp(FB);auth=firebase.auth();db=firebase.firestore()}else{$('#auth').hidden=false;$('#setup').hidden=false}
 const clean=()=>{unsubs.forEach(f=>f());unsubs=[]};
+const TS=()=>firebase.firestore.FieldValue.serverTimestamp();
 
 // ---------- Auth ----------
-opts($('#a_nat'),'Urdu');opts($('#a_lrn'),'English');
-function authMode(m){mode=m;const s=m==='signup';['#a_name','#a_nat','#a_lrn'].forEach(i=>$(i).hidden=!s);$('#a_go').textContent=s?'Sign up':'Log in';$('#a_sw').textContent=s?'I already have an account':'Create new account';$('#err').textContent=''}
+opts($('#a_nat'),'Urdu');opts($('#a_lrn'),'English');opts($('#a_lvl'),1,LV);
+function authMode(m){mode=m;const s=m==='signup';$('#a_name').hidden=!s;$('#a_ex').hidden=!s;$('#a_go').textContent=s?'Sign up':'Log in';$('#a_sw').textContent=s?'I already have an account':'Create new account';$('#err').textContent=''}
 $('#a_sw').onclick=()=>authMode(mode==='login'?'signup':'login');
 const E={'auth/email-already-in-use':'This username is taken.','auth/invalid-credential':'Wrong username or password.','auth/wrong-password':'Wrong username or password.','auth/user-not-found':'Wrong username or password.','auth/weak-password':'Password must be at least 6 characters.','auth/network-request-failed':'No internet connection.','auth/too-many-requests':'Too many attempts. Try later.'};
 $('#af').onsubmit=async e=>{e.preventDefault();if(!ok)return;const u=$('#a_user').value.trim().toLowerCase(),p=$('#a_pass').value,er=$('#err'),b=$('#a_go');er.textContent='';
@@ -94,77 +120,106 @@ $('#af').onsubmit=async e=>{e.preventDefault();if(!ok)return;const u=$('#a_user'
  b.disabled=true;
  try{const mail=u+'@guftugu.app';
   if(mode==='signup'){const c=await auth.createUserWithEmailAndPassword(mail,p);
-   await db.collection('users').doc(c.user.uid).set({name,username:u,native:$('#a_nat').value,learning:$('#a_lrn').value,bio:'',createdAt:firebase.firestore.FieldValue.serverTimestamp()});}
+   await db.collection('users').doc(c.user.uid).set({name,username:u,native:$('#a_nat').value,learning:$('#a_lrn').value,level:+$('#a_lvl').value,bio:'',createdAt:TS()})}
   else await auth.signInWithEmailAndPassword(mail,p);
  }catch(x){er.textContent=E[x.code]||x.message}
  b.disabled=false};
-if(ok)auth.onAuthStateChanged(async u=>{clean();
+if(ok)auth.onAuthStateChanged(async u=>{clean();clearInterval(uw);
  if(!u){me=null;$('#auth').hidden=false;return}
  let d;for(let i=0;i<4&&!d;i++){const s=await db.collection('users').doc(u.uid).get().catch(()=>null);if(s&&s.exists)d=s.data();else await new Promise(r=>setTimeout(r,400))}
- if(!d){d={name:u.email.split('@')[0],username:u.email.split('@')[0],native:'Urdu',learning:'English',bio:''};await db.collection('users').doc(u.uid).set(d)}
+ if(!d){d={name:u.email.split('@')[0],username:u.email.split('@')[0],native:'Urdu',learning:'English',level:1,bio:''};await db.collection('users').doc(u.uid).set(d)}
  me={id:u.uid,...d};$('#auth').hidden=true;tab(cur);
- db.collection('users').doc(u.uid).update({seen:firebase.firestore.FieldValue.serverTimestamp()}).catch(()=>{})});
+ const hb=()=>db.collection('users').doc(u.uid).update({seen:TS()}).catch(()=>{});hb();uw=setInterval(hb,60e3)});
 
 // ---------- Tabs ----------
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>tab(b.dataset.t));
 function tab(t){if(!me)return;cur=t;clean();document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
- $('#ttl').textContent={chats:'گفتگو',discover:'Discover',moments:'Moments',me:'Me'}[t];({chats:vChats,discover:vDiscover,moments:vMoments,me:vMe})[t]($('#main'))}
-const err=m=>{$('#main').innerHTML=`<p class="mu" style="padding:20px;text-align:center">${esc(m)}</p>`};
+ $('#ttl').textContent=t==='chats'?'گفتگو':NAV[t];({chats:vChats,discover:vDiscover,moments:vMoments,me:vMe})[t]($('#main'))}
+const err=m=>{$('#main').innerHTML=`<p class="mid">${esc(m)}</p>`};
 
 // ---------- Chats ----------
 const cid=(a,b)=>[a,b].sort().join('_');
-function vChats(el){el.innerHTML='<p class="mu" style="text-align:center;padding:20px">Loading…</p>';
+function vChats(el){el.innerHTML='<p class="mid">Loading…</p>';
  unsubs.push(db.collection('chats').where('members','array-contains',me.id).onSnapshot(s=>{
   const L=s.docs.map(d=>({id:d.id,...d.data()})).filter(c=>c.lastAt).sort((a,b)=>ms(b.lastAt)-ms(a.lastAt));
-  if(cur!=='chats')return;
-  el.innerHTML=L.length?L.map(c=>{const o=c.members.find(x=>x!==me.id),n=(c.names||{})[o]||'User',un=c.lastFrom!==me.id&&ms(c.lastAt)>(+ls('seen_'+c.id)||0);
-   return`<div class="row" data-o="${esc(o)}" data-n="${esc(n)}">${av(n)}<div class="t"><b>${esc(n)}</b><small>${esc(c.last)}</small></div><div style="text-align:end"><small>${ago(ms(c.lastAt))}</small>${un?'<div class="dot" style="margin-left:auto"></div>':''}</div></div>`}).join(''):'<div class="card" style="text-align:center">No chats yet.<br>Open <b>Discover</b> and say hello 👋</div>';
+  let N=0;if(cur!=='chats')return;
+  el.innerHTML=L.length?L.map(c=>{const o=c.members.find(x=>x!==me.id),n=(c.names||{})[o]||'User',un=c.lastFrom!==me.id&&ms(c.lastAt)>(+ls('seen_'+c.id)||0);if(un)N++;
+   return`<div class="row" data-o="${esc(o)}" data-n="${esc(n)}">${av(n)}<div class="t"><b>${esc(n)}</b><small style="${un?'color:var(--tx);font-weight:600':''}">${esc(c.last)}</small></div><div style="text-align:end"><small>${ago(ms(c.lastAt))}</small>${un?'<span class="bdg" style="position:static;display:inline-block;margin-top:3px">●</span>':''}</div></div>`}).join(''):'<div class="mid">No chats yet.<br>Open <b>Partners</b> and say hello 👋</div>';
+  const bd=$('#bd_chats');bd.hidden=!N;bd.textContent=N;
   el.querySelectorAll('.row').forEach(r=>r.onclick=()=>openChat({id:r.dataset.o,name:r.dataset.n}));
  },e=>err('Could not load chats. '+e.code)))}
 
-function openChat(u){const id=cid(me.id,u.id),el=$('#chat');el.hidden=false;
- el.innerHTML=`<header><button id="bk" style="font-size:26px">‹</button>${av(u.name)}<b style="flex:1">${esc(u.name)}</b></header><div id="ml"></div><form id="cf" autocomplete="off"><input id="ci" placeholder="Type a message…" maxlength="2000"><button aria-label="Send">➤</button></form>`;
+function openChat(u){const id=cid(me.id,u.id),el=$('#chat');el.hidden=false;let rep=null,M={},X={};
+ el.innerHTML=`<header><button class="ib" id="bk" style="font-size:28px">‹</button>${av(u.name,0,40)}<div style="flex:1;min-width:0"><b id="hn">${esc(u.name)}</b><small class="mu" id="hs" style="display:block"></small></div><button class="ib" id="pf">ⓘ</button></header><div id="ml"></div><div id="rb" hidden><span></span><button id="rx">✕</button></div><form id="cf" autocomplete="off"><input id="ci" placeholder="Type a message…" maxlength="2000"><button class="sd" aria-label="Send">➤</button></form>`;
+ let pu=null;db.collection('users').doc(u.id).get().then(s=>{if(!s.exists)return;pu={id:u.id,...s.data()};$('#hs').innerHTML=`${online(pu)?'<span style="color:#2ecc71">● online · </span>':''}${fl(pu.native)} ${esc(pu.native)} → ${fl(pu.learning)} ${esc(pu.learning)}`}).catch(()=>{});
+ $('#pf').onclick=()=>pu&&profile(pu,1);
  const col=db.collection('chats').doc(id).collection('msgs'),ml=$('#ml');let stop;
  const close=()=>{stop&&stop();el.hidden=true;el.innerHTML='';if(cur==='chats')tab('chats')};$('#bk').onclick=close;
- stop=col.orderBy('at').limitToLast(200).onSnapshot(s=>{
-  ml.innerHTML=s.docs.map(d=>{const m=d.data();return`<div class="m ${m.from===me.id?'me':''}">${esc(m.text)}<i>${ago(ms(m.at))}</i></div>`}).join('')||'<p class="mu" style="text-align:center;margin:auto">Say hello 👋</p>';
-  ml.scrollTop=ml.scrollHeight;ls('seen_'+id,Date.now())},e=>{ml.innerHTML='<p class="mu">Cannot open chat ('+esc(e.code)+')</p>'});
- $('#cf').onsubmit=async e=>{e.preventDefault();const i=$('#ci'),text=i.value.trim();if(!text)return;i.value='';
-  const ts=firebase.firestore.FieldValue.serverTimestamp(),b=db.batch();
-  b.set(db.collection('chats').doc(id),{members:[me.id,u.id].sort(),names:{[me.id]:me.name,[u.id]:u.name},last:text.slice(0,80),lastAt:ts,lastFrom:me.id},{merge:true});
-  b.set(col.doc(),{from:me.id,text,at:ts});
-  try{await b.commit()}catch(x){i.value=text;alert('Message not sent: '+x.code)}};
+ const setRep=r=>{rep=r;$('#rb').hidden=!r;if(r)$('#rb span').textContent='↩ '+r.t};$('#rx').onclick=()=>setRep(null);
+ const send=async(extra,last)=>{const ts=TS(),b=db.batch();
+  b.set(db.collection('chats').doc(id),{members:[me.id,u.id].sort(),names:{[me.id]:me.name,[u.id]:u.name},last:last.slice(0,80),lastAt:ts,lastFrom:me.id},{merge:true});
+  b.set(col.doc(),{from:me.id,at:ts,...extra});await b.commit()};
+ const draw=()=>{ml.innerHTML=Object.entries(M).map(([k,m])=>m.type==='corr'
+   ?`<div class="cr"><small>✏️ ${m.from===me.id?'You':esc(u.name)} suggested a correction</small><s>${esc(m.orig)}</s><br><span class="fx">${esc(m.text)}</span></div>`
+   :`<div class="m ${m.from===me.id?'me':''}" data-k="${k}">${m.rp?`<div class="rp">${esc(m.rp.t)}</div>`:''}${esc(m.text)}${X[k]?`<div class="trx">🌐 ${esc(X[k])}</div>`:''}<i>${ago(ms(m.at))}</i></div>`).join('')
+   ||`<div class="mid" style="margin:auto">Say hello 👋<div class="qr">${['Hello! 👋','Can we practice together?','Nice to meet you!'].map(t=>`<button class="chip" data-q="${t}">${t}</button>`).join('')}</div></div>`;ml.scrollTop=ml.scrollHeight};
+ stop=col.orderBy('at').limitToLast(200).onSnapshot(s=>{M={};s.docs.forEach(d=>M[d.id]=d.data());draw();ls('seen_'+id,Date.now())},e=>{ml.innerHTML='<p class="mid">Cannot open chat ('+esc(e.code)+')</p>'});
+ ml.onclick=e=>{const q=e.target.closest('[data-q]');if(q){send({text:q.dataset.q},q.dataset.q);return}
+  const b=e.target.closest('.m');if(!b)return;const k=b.dataset.k,m=M[k],mine=m.from===me.id;
+  popup([['↩ Reply',()=>{setRep({t:m.text.slice(0,60)});$('#ci').focus()}],
+   ['🌐 Translate',async()=>{X[k]='…';draw();try{X[k]=await tr(m.text,mine?me.learning:me.native)}catch(_){X[k]='Translation failed'}draw()}],
+   ...(mine?[]:[['✏️ Correct this message',()=>correct(m)]]),
+   ['📋 Copy',()=>navigator.clipboard&&navigator.clipboard.writeText(m.text)]])};
+ function correct(m){const s=$('#sheet');s.hidden=false;s.innerHTML=`<div class="pad"><button class="ib" id="x" style="font-size:28px">‹</button><h3 style="margin:6px 0 10px">Correct message</h3><div class="card"><small class="mu">Original</small><p><s style="color:#e5484d">${esc(m.text)}</s></p></div><textarea id="cx" rows="3">${esc(m.text)}</textarea><button class="btn" id="cs">Send correction</button></div>`;
+  $('#x').onclick=()=>s.hidden=true;$('#cs').onclick=async()=>{const t=$('#cx').value.trim();if(!t||t===m.text)return;s.hidden=true;try{await send({type:'corr',orig:m.text,text:t},'✏️ '+t)}catch(x){alert('Not sent: '+x.code)}}}
+ $('#cf').onsubmit=async e=>{e.preventDefault();const i=$('#ci'),text=i.value.trim();if(!text)return;i.value='';const r=rep;setRep(null);
+  try{await send({text,...(r?{rp:r}:{})},text)}catch(x){i.value=text;alert('Message not sent: '+x.code)}};
  $('#ci').focus()}
 
-// ---------- Discover ----------
-function vDiscover(el){el.innerHTML='<input id="q" placeholder="Search name or username…"><div id="ul"><p class="mu" style="text-align:center">Loading…</p></div>';let all=[];
+// ---------- Partners ----------
+function vDiscover(el){el.innerHTML='<div class="srch"><input id="q" placeholder="🔍 Search name or username"></div><div class="chips" id="ch"></div><div id="ul"><p class="mid">Loading…</p></div>';let all=[],f='match';
+ const F={match:'🎯 Language match',all:'All',online:'🟢 Online',new:'New'};
  const show=()=>{const q=$('#q').value.trim().toLowerCase();
-  const L=all.filter(u=>!q||(u.name+u.username).toLowerCase().includes(q)).map(u=>({...u,sc:(u.native===me.learning?2:0)+(u.learning===me.native?2:0)})).sort((a,b)=>b.sc-a.sc);
-  $('#ul').innerHTML=L.length?L.map(u=>`<div class="row" data-i="${esc(u.id)}">${av(u.name)}<div class="t"><b>${esc(u.name)}</b><small>@${esc(u.username)}</small><div><span class="tag ${u.native===me.learning?'m':''}">Speaks ${esc(u.native)}</span><span class="tag ${u.learning===me.native?'m':''}">Learning ${esc(u.learning)}</span></div></div></div>`).join(''):'<p class="mu" style="text-align:center">No users found.</p>';
+  $('#ch').innerHTML=Object.keys(F).map(k=>`<button class="chip ${k===f?'on':''}" data-f="${k}">${F[k]}</button>`).join('');
+  $('#ch').querySelectorAll('button').forEach(b=>b.onclick=()=>{f=b.dataset.f;show()});
+  let L=all.filter(u=>!q||(u.name+u.username).toLowerCase().includes(q)).map(u=>({...u,sc:(u.native===me.learning?2:0)+(u.learning===me.native?2:0)+(online(u)?1:0)}));
+  if(f==='match')L=L.filter(u=>u.native===me.learning||u.learning===me.native);if(f==='online')L=L.filter(online);
+  L.sort(f==='new'?(a,b)=>ms(b.createdAt)-ms(a.createdAt):(a,b)=>b.sc-a.sc);
+  $('#ul').innerHTML=L.length?L.map(u=>`<div class="row" data-i="${esc(u.id)}">${av(u.name,online(u))}<div class="t"><b>${esc(u.name)} ${u.native===me.learning&&u.learning===me.native?'<span class="tag m" style="margin:0">⇄ Perfect match</span>':''}</b><small>${esc(u.bio||'@'+u.username)}</small><div><span class="tag ${u.native===me.learning?'m':''}">${fl(u.native)} ${esc(u.native)}</span><span class="tag ${u.learning===me.native?'m':''}">→ ${fl(u.learning)} ${esc(u.learning)} ${lvl(u.level??1)}</span></div></div></div>`).join(''):'<p class="mid">No partners found.</p>';
   $('#ul').querySelectorAll('.row').forEach(r=>r.onclick=()=>profile(all.find(u=>u.id===r.dataset.i)))};
  $('#q').oninput=show;
  db.collection('users').limit(100).get().then(s=>{all=s.docs.map(d=>({id:d.id,...d.data()})).filter(u=>u.id!==me.id);show()}).catch(e=>err('Could not load users. '+e.code))}
-function profile(u){const s=$('#sheet');s.hidden=false;
- s.innerHTML=`<button id="x" style="font-size:26px;align-self:flex-start">‹</button><div style="text-align:center;margin-top:10px"><div class="av" style="width:90px;height:90px;font-size:36px;margin:auto">${esc(u.name[0]).toUpperCase()}</div><h2 style="margin-top:10px">${esc(u.name)}</h2><p class="mu">@${esc(u.username)}</p><p style="margin:14px 0">${esc(u.bio||'No bio yet.')}</p><span class="tag m">Speaks ${esc(u.native)}</span><span class="tag m">Learning ${esc(u.learning)}</span></div><button class="btn" id="hi" style="margin-top:24px">💬 Send message</button>`;
- $('#x').onclick=()=>{s.hidden=true};$('#hi').onclick=()=>{s.hidden=true;openChat({id:u.id,name:u.name})}}
+function profile(u,fromChat){const s=$('#sheet');s.hidden=false;
+ s.innerHTML=`<div class="pad"><button class="ib" id="x" style="font-size:28px">‹</button><div class="card" style="text-align:center;margin-top:6px">${`<div style="display:flex;justify-content:center">${av(u.name,online(u),96)}</div>`}<h2 style="margin-top:10px">${esc(u.name)}</h2><p class="mu">@${esc(u.username)} ${online(u)?'· <span style="color:#2ecc71">online</span>':''}</p><p style="margin:14px 0">${esc(u.bio||'No bio yet.')}</p></div>
+ <div class="card"><small class="mu">Native language</small><p style="font-size:18px;margin-bottom:12px">${fl(u.native)} ${esc(u.native)}</p><small class="mu">Learning</small><p style="font-size:18px">${fl(u.learning)} ${esc(u.learning)} &nbsp;${lvl(u.level??1)} <small class="mu">${LV[u.level??1]}</small></p></div>
+ ${fromChat?'':'<button class="btn" id="hi">💬 Say hello</button>'}</div>`;
+ $('#x').onclick=()=>{s.hidden=true};if(!fromChat)$('#hi').onclick=()=>{s.hidden=true;openChat({id:u.id,name:u.name})}}
 
 // ---------- Moments ----------
-function vMoments(el){el.innerHTML='<div class="card"><textarea id="mt" rows="2" maxlength="500" placeholder="Share something in any language…" style="margin-bottom:8px"></textarea><button class="btn" id="mp">Post</button></div><div id="mf"></div>';
+function vMoments(el){el.innerHTML='<div class="pad"><div class="card"><textarea id="mt" rows="2" maxlength="500" placeholder="Share something in any language…" style="margin-bottom:8px;border:0;background:var(--s2)"></textarea><button class="btn" id="mp">Post</button></div><div id="mf"></div></div>';
  $('#mp').onclick=async()=>{const t=$('#mt').value.trim();if(!t)return;$('#mt').value='';
-  try{await db.collection('moments').add({uid:me.id,name:me.name,text:t,lang:me.native,likes:[],at:firebase.firestore.FieldValue.serverTimestamp()})}catch(x){alert('Could not post: '+x.code)}};
- unsubs.push(db.collection('moments').orderBy('at','desc').limit(50).onSnapshot(s=>{if(cur!=='moments')return;
-  $('#mf').innerHTML=s.docs.map(d=>{const m=d.data(),l=(m.likes||[]),mine=l.includes(me.id);
-   return`<div class="card"><div style="display:flex;gap:10px;align-items:center">${av(m.name)}<div style="flex:1"><b>${esc(m.name)}</b><small class="mu" style="display:block">${esc(m.lang||'')} · ${ago(ms(m.at))}</small></div>${m.uid===me.id?`<button data-d="${d.id}" class="mu">🗑</button>`:''}</div><p style="margin:10px 0;white-space:pre-wrap;word-break:break-word">${esc(m.text)}</p><button data-l="${d.id}" data-m="${mine?1:0}" style="color:${mine?'var(--ac)':'var(--mu)'}">${mine?'❤️':'🤍'} ${l.length}</button></div>`}).join('')||'<p class="mu" style="text-align:center">No moments yet. Be the first!</p>';
-  $('#mf').querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>db.collection('moments').doc(b.dataset.l).update({likes:firebase.firestore.FieldValue[b.dataset.m==='1'?'arrayRemove':'arrayUnion'](me.id)}).catch(()=>{}));
-  $('#mf').querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>confirm('Delete this moment?')&&db.collection('moments').doc(b.dataset.d).delete().catch(()=>{}));
- },e=>err('Could not load moments. '+e.code)))}
+  try{await db.collection('moments').add({uid:me.id,name:me.name,text:t,lang:me.native,likes:[],at:TS()})}catch(x){alert('Could not post: '+x.code)}};
+ let X={};const draw=s=>{if(cur!=='moments')return;
+  $('#mf').innerHTML=s.docs.map(d=>{const m=d.data(),l=m.likes||[],mine=l.includes(me.id);
+   return`<div class="card"><div class="mo-h">${av(m.name)}<div style="flex:1"><b>${esc(m.name)}</b><small class="mu" style="display:block">${fl(m.lang)} ${esc(m.lang||'')} · ${ago(ms(m.at))}</small></div>${m.uid===me.id?`<button data-d="${d.id}" class="mu">🗑</button>`:''}</div><p style="margin:10px 0 0;white-space:pre-wrap;word-break:break-word">${esc(m.text)}</p>${X[d.id]?`<p class="trx" style="margin-top:8px;border-top:1px dashed var(--bd);padding-top:6px">🌐 ${esc(X[d.id])}</p>`:''}<div class="act"><button data-l="${d.id}" data-m="${mine?1:0}" style="color:${mine?'#ff4d4f':'var(--mu)'}">${mine?'❤️':'🤍'} ${l.length}</button><button data-c="${d.id}">💬 Comment</button><button data-t="${d.id}">🌐 Translate</button></div></div>`}).join('')||'<p class="mid">No moments yet. Be the first!</p>';
+  const g=a=>$('#mf').querySelectorAll(a);
+  g('[data-l]').forEach(b=>b.onclick=()=>db.collection('moments').doc(b.dataset.l).update({likes:firebase.firestore.FieldValue[b.dataset.m==='1'?'arrayRemove':'arrayUnion'](me.id)}).catch(()=>{}));
+  g('[data-d]').forEach(b=>b.onclick=()=>confirm('Delete this moment?')&&db.collection('moments').doc(b.dataset.d).delete().catch(()=>{}));
+  g('[data-c]').forEach(b=>b.onclick=()=>comments(b.dataset.c));
+  g('[data-t]').forEach(b=>b.onclick=async()=>{const k=b.dataset.t,m=s.docs.find(d=>d.id===k).data();X[k]='…';draw(s);try{X[k]=await tr(m.text,m.lang===me.native?me.learning:me.native)}catch(_){X[k]='Translation failed'}draw(s)})};
+ unsubs.push(db.collection('moments').orderBy('at','desc').limit(50).onSnapshot(draw,e=>err('Could not load moments. '+e.code)))}
+function comments(mid){const s=$('#sheet');s.hidden=false;const col=db.collection('moments').doc(mid).collection('comments');let st;
+ s.innerHTML=`<div style="display:flex;flex-direction:column;height:100%"><div style="padding:8px"><button class="ib" id="x" style="font-size:28px">‹</button></div><div id="cl" class="pad" style="flex:1;overflow:auto"></div><form id="cf" autocomplete="off"><input id="cc" placeholder="Write a comment…" maxlength="300"><button class="sd" aria-label="Send">➤</button></form></div>`;
+ $('#x').onclick=()=>{st&&st();s.hidden=true};
+ st=col.orderBy('at').limitToLast(100).onSnapshot(q=>{$('#cl').innerHTML=q.docs.map(d=>{const c=d.data();return`<div class="row" style="cursor:default;border-radius:12px;margin-bottom:6px;align-items:flex-start">${av(c.name,0,38)}<div class="t"><b>${esc(c.name)} <small class="mu">${ago(ms(c.at))}</small></b><span style="white-space:pre-wrap;word-break:break-word">${esc(c.text)}</span></div></div>`}).join('')||'<p class="mid">No comments yet.</p>'},e=>{$('#cl').innerHTML='<p class="mid">Comments unavailable ('+esc(e.code)+')</p>'});
+ $('#cf').onsubmit=async e=>{e.preventDefault();const t=$('#cc').value.trim();if(!t)return;$('#cc').value='';try{await col.add({uid:me.id,name:me.name,text:t,at:TS()})}catch(x){alert('Could not comment: '+x.code)}}}
 
 // ---------- Me ----------
-function vMe(el){el.innerHTML=`<div class="card" style="text-align:center"><div class="av" style="width:80px;height:80px;font-size:32px;margin:auto;background:hsl(${hue(me.name)} 50% 42%)">${esc(me.name[0]).toUpperCase()}</div><p class="mu" style="margin-top:6px">@${esc(me.username)}</p></div>
- <div class="card"><label class="mu">Name</label><input id="p_n" maxlength="30" value="${esc(me.name)}"><label class="mu">Bio</label><textarea id="p_b" rows="3" maxlength="200">${esc(me.bio||'')}</textarea><label class="mu">I speak</label><select id="p_nat"></select><label class="mu">I'm learning</label><select id="p_lrn"></select><button class="btn" id="p_s">Save</button></div>
- <button class="btn g" id="lo">Log out</button>`;
- opts($('#p_nat'),me.native);opts($('#p_lrn'),me.learning);
- $('#p_s').onclick=async()=>{const n=$('#p_n').value.trim();if(!n)return;const d={name:n,bio:$('#p_b').value.trim(),native:$('#p_nat').value,learning:$('#p_lrn').value};
+function vMe(el){el.innerHTML=`<div class="pad"><div class="card" style="text-align:center"><div style="display:flex;justify-content:center">${av(me.name,1,84)}</div><h2 style="margin-top:8px">${esc(me.name)}</h2><p class="mu">@${esc(me.username)}</p></div>
+ <div class="card"><label class="mu">Name</label><input id="p_n" maxlength="30" value="${esc(me.name)}"><label class="mu">Bio</label><textarea id="p_b" rows="3" maxlength="200">${esc(me.bio||'')}</textarea><label class="mu">I speak</label><select id="p_nat"></select><label class="mu">I'm learning</label><select id="p_lrn"></select><label class="mu">My level</label><select id="p_lvl"></select><button class="btn" id="p_s">Save</button></div>
+ <button class="btn g" id="lo">Log out</button></div>`;
+ opts($('#p_nat'),me.native);opts($('#p_lrn'),me.learning);opts($('#p_lvl'),me.level??1,LV);
+ $('#p_s').onclick=async()=>{const n=$('#p_n').value.trim();if(!n)return;const d={name:n,bio:$('#p_b').value.trim(),native:$('#p_nat').value,learning:$('#p_lrn').value,level:+$('#p_lvl').value};
   try{await db.collection('users').doc(me.id).update(d);Object.assign(me,d);$('#p_s').textContent='Saved ✓';setTimeout(()=>{if($('#p_s'))$('#p_s').textContent='Save'},1500)}catch(x){alert('Could not save: '+x.code)}};
  $('#lo').onclick=()=>auth.signOut()}
 
